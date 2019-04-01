@@ -5,8 +5,8 @@ resource "aws_route53_zone" "rotem-site-zone" {
 resource "aws_route53_record" "www-record" {
   zone_id = "${aws_route53_zone.rotem-site-zone.zone_id}"
   name    = "www"
-  type    = "CNAME"
-  ttl     = "60"
+  type    = "CNAME" // The fully qualified domain name sent in response to DNS queries for this record (www/mail/ftp.record.com)
+  ttl     = "60" // The amount of time, in seconds, that you want DNS recursive resolvers to cache information about this record (more time, less expensive)
   records = ["${var.lb_dns_name}"]
 }
 
