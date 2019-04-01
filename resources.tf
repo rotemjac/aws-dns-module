@@ -4,7 +4,7 @@ resource "aws_route53_zone" "rotem-site-zone" {
 
 resource "aws_route53_record" "www-record" {
   zone_id = "${aws_route53_zone.rotem-site-zone.zone_id}"
-  name    = "www-record-name"
+  name    = "www"
   type    = "CNAME"
   ttl     = "60"
   records = ["${var.lb_dns_name}"]
